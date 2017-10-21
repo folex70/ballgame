@@ -1,0 +1,6 @@
+*.log
+*.info
+ballgame/Library/
+ballgame/Temp/
+Library/
+Temp/
