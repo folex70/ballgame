@@ -26,7 +26,7 @@ public class player : MonoBehaviour {
 		//vx = vel * Input.GetAxis ("Horizontal");
 		//rb.velocity.x = vx;
 
-		anim.SetFloat("vel",Mathf.Abs(Input.GetAxis("Horizontal")));
+		//anim.SetFloat("vel",Mathf.Abs(Input.GetAxis("Horizontal")));
 
 		Vector2 temp = rb.velocity;
 		temp.x = vel * Input.GetAxis("Horizontal");
