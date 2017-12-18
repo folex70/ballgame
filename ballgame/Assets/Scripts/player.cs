@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class player : MonoBehaviour {
 
 	public float vel;
 	public Rigidbody2D rb;
 	public Animator anim;
 	public SpriteRenderer sprite;
-	
+	public Text moedasText;
+	public Text queijoText;
 	//--------Itens JOgo
 	public bool hasKey = false;
+	public bool potion = false;
 	public GameObject Obkey;
 	public GameObject ObGrid;
-
+	public float queijo = 0;
+	public float moeda = 0;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
@@ -23,6 +28,10 @@ public class player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//-----textos
+		queijoText.text = "Queijo: "+queijo;
+		moedasText.text = "Moedas: "+moeda;
+		//------------
 		//vx = vel * Input.GetAxis ("Horizontal");
 		//rb.velocity.x = vx;
 
@@ -77,10 +86,46 @@ public class player : MonoBehaviour {
 		if(col.gameObject.tag == "Fall"){
 			gameOver ();
 		}
+
+		if(col.gameObject.tag == "potion"){
+			potion = true;
+			col.gameObject.SetActive(false);
+		}
+
+		if(col.gameObject.tag == "boss"){
+			if (!potion) {
+				gameOver ();
+			} else {
+				col.gameObject.SetActive(false);
+			}
+		}
 		
 		if(col.gameObject.tag == "Exit"){
 			//NextStage
-			gameOver ();
+			//gameOver ();
+			Scene scene = SceneManager.GetActiveScene();
+
+			if (scene.name == "fase1") {
+				SceneManager.LoadScene ("fase2");  
+			} else if (scene.name == "fase2") {
+				SceneManager.LoadScene ("fase3");  
+			} else if (scene.name == "fase3") {
+				SceneManager.LoadScene ("creditos");  
+			}
+			else{			
+				SceneManager.LoadScene ("fase1");  
+			}
+
+		}
+
+		if(col.gameObject.tag == "queijo"){
+			queijo++;
+			col.gameObject.SetActive(false);
+		}
+
+		if(col.gameObject.tag == "moeda"){
+			moeda++;
+			col.gameObject.SetActive(false);
 		}
 	}
 }

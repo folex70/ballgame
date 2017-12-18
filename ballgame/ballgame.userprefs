@@ -3,8 +3,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\player.cs">
     <Files>
       <File FileName="Assets\Scripts\movingWall.cs" Line="39" Column="1" />
-      <File FileName="Assets\Scripts\player.cs" Line="29" Column="5" />
-      <File FileName="Assets\Scripts\horizontalPlataform.cs" Line="24" Column="44" />
+      <File FileName="Assets\Scripts\player.cs" Line="115" Column="9" />
+      <File FileName="Assets\Scripts\horizontalPlataform.cs" Line="18" Column="11" />
+      <File FileName="Assets\Scripts\boss.cs" Line="25" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
